@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "print-tortoise"
+version = "0.1.0"
+description = "Draw a PDF with MuPDF, Ghostscript and Apple's engine, mark where they disagree, and refuse the transparency that makes them disagree."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Konstantinos Georgiou" }]
+dependencies = ["pikepdf>=8", "pymupdf>=1.24", "pillow>=10", "numpy>=1.22"]
+keywords = ["pdf", "print", "render", "ghostscript", "mupdf", "coregraphics", "transparency"]
+classifiers = ["Programming Language :: Python :: 3", "Topic :: Printing"]
+
+[project.urls]
+Homepage = "https://github.com/drkostas/print-tortoise"
+
+[project.scripts]
+print-tortoise = "print_tortoise.render:main"
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+print_tortoise = ["skill/SKILL.md", "qrender.swift"]
